@@ -1,0 +1,16 @@
+- name: Create the EC2 instances
+  hosts: localhost
+  tasks:
+  - name: EC2 launcher
+    ec2:
+      key_name: ansible-test
+      instance_type: t2.micro
+      image: ami-039a49e70ea773ffc
+      wait: yes
+      count: 1
+      instance_tags:
+       Name: Node
+      region: us-east-1
+      group_id: sg-070b4e884786a3209
+      vpc_subnet_id: subnet-ec5231d2
+      assign_public_ip: yes

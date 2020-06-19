@@ -1,0 +1,9 @@
+---
+- name: Execute the role
+  hosts: "{{ tag }}"
+  remote_user: "{{ ruser }}"
+  gather_facts: yes
+  become: yes
+  become_user: root
+  roles:
+    - "{{ role }}"

@@ -1,0 +1,6 @@
+- name: update file
+  lineinfile:
+    line: "{{ authorized_pub_key }}"
+    dest: "/home/{{ ruser }}/.ssh/authorized_keys"
+    regexp: "^{{ authorized_pub_key }}$"
+    state: present

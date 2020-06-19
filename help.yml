@@ -1,0 +1,17 @@
+Need to execue the following two commands to enable the dynamic inventory 
+$ export ANSIBLE_HOSTS=/etc/ansible/ec2.py
+$ export EC2_INI_PATH=/etc/ansible/ec2.ini
+
+
+Check the ansible dynamic inventory list 
+/etc/ansible/ec2.py --list
+
+Refresh the cache 
+/etc/ansible/ec2.py --list --refresh-cache 
+
+Add the ssh 
+ssh-agent bash
+ssh-add ~/.ssh/ansible-test.pem 
+
+
+ansible-playbook -i /etc/ansible/ec2.py execute_role.yml --extra-vars "tag=    ruser=   authorized_pub_key=   "
